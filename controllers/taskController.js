@@ -16,7 +16,7 @@ module.exports = {
         try{
            const { body } = req
            const item = await TaskModel.create(body)
-           res.status(201).send(item.id)
+           res.status(201).send(item)
         }catch(e){
             res.status(500).send({
                 error: e.message
