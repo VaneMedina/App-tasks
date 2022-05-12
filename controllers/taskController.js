@@ -27,8 +27,9 @@ module.exports = {
         try {
             const { id } = req.params
             const { body } = req
-            await TaskModel.update(id, body)
-            res.sendStatus(200)
+            const item = await TaskModel.update(id, body)
+            const updated = { ...item._doc, ...req.body }
+            res.status(200).send(updated)
           }catch (e) {
             console.log(e)
             res.send({ error: e.message })

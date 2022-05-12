@@ -19,9 +19,10 @@ class Task {
         const item = await this.model.create(obj);
         return item;
     }
-    async update(id, product) {
-        const item = await this.model.findByIdAndUpdate(id, product)
-        if (!item) throw new Error('Item not found')
+    async update(id, obj) {
+        const item = await this.model.findByIdAndUpdate(id, obj)
+        return item;
+        //if (!item) throw new Error('Item not found')
     }
     async delete(id) {
         const item = await this.model.findByIdAndDelete(id);
